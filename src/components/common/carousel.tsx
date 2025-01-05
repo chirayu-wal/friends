@@ -31,7 +31,7 @@ export default function SimpleSlider({
                   className="w-full h-full object-cover opacity-20 blur-md"
                 />
               </div>
-              <div className="h-full flex flex-col justify-between space-y-4 w-2/3 p-8 py-16 z-20">
+              <div className="h-full flex flex-col justify-between space-y-4 md:w-2/3 p-8 py-16 z-20">
                 <h1 className="text-5xl font-bold">
                   {media.title || media.name}
                 </h1>
@@ -68,7 +68,7 @@ export default function SimpleSlider({
                 <img
                   src={`https://image.tmdb.org/t/p/original/${media.poster_path}`}
                   alt={media.title}
-                  className="h-[110vh] rotate-[15deg] w-[35vw] object-cover top-1/2 right-24  absolute -translate-y-1/2"
+                  className="h-[110vh] rotate-[15deg] w-[90vw] object-cover top-1/2 right-24  absolute -translate-y-1/2"
                 />
               </div>
             </div>

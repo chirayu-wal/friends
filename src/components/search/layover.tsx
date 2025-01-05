@@ -43,7 +43,7 @@ const Layover = () => {
         {/* TODO:make this div in center of the */}
         <div
           onClick={stopPropagation}
-          className="w-1/3 flex flex-col space-y-4 z-20 p-6 rounded-lg"
+          className="w-full md:w-1/3 flex flex-col space-y-4 z-20 p-6 rounded-lg"
         >
           <p className="text-white text-2xl text-center">Search Anything</p>
           <div className="flex items-center space-x-4">
@@ -57,7 +57,7 @@ const Layover = () => {
                 className="w-full text-xl outline-none border-none bg-white/10 backdrop-blur-lg rounded-xl py-8 px-8 pl-16 placeholder:text-gray-300 text-white"
               />
             </div>
-            <Link to={"/search"}>
+            <Link to={"/search"} onClick={toggleLayover}>
               <Button variant={"default"} className="p-8">
                 <FilterIcon className="text-white w-8 h-8" />
               </Button>
@@ -94,13 +94,13 @@ const Layover = () => {
                           {result.title || result.name}
                         </p>
                         <div className="flex items-center space-x-2">
-                          <p className="text-white text-sm flex items-center space-x-2 p-2 px-4 bg-black/50 rounded-xl">
+                          <p className="text-white text-xs md:text-sm flex items-center space-x-2 p-2 px-4 bg-black/50 rounded-xl">
                             <StarIcon className="w-4 h-4 text-primary fill-primary" />
                             <span className="capitalize font-medium">
                               {result.vote_average.toFixed(1)}
                             </span>
                           </p>
-                          <p className="text-white text-sm flex items-center space-x-2 p-2 px-4 bg-black/50 rounded-xl">
+                          <p className="text-white text-xs md:text-sm flex items-center space-x-2 p-2 px-4 bg-black/50 rounded-xl">
                             {result.media_type === "tv" && (
                               <Tv className="w-4 h-4 text-primary" />
                             )}
@@ -112,7 +112,7 @@ const Layover = () => {
                             </span>
                           </p>
 
-                          <p className="text-white text-sm flex items-center space-x-2 p-2 px-4 bg-black/50 rounded-xl">
+                          <p className="text-white max-md:hidden text-xs md:text-sm flex items-center space-x-2 p-2 px-4 bg-black/50 rounded-xl">
                             <Calendar className="w-4 h-4 text-primary" />
                             <span className="capitalize font-medium">
                               {moment(

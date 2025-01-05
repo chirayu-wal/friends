@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import {
   Dialog,
@@ -37,7 +35,7 @@ export function AddProfileDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] bg-black/90 border-none text-white backdrop-blur-lg">
         <DialogHeader>
           <DialogTitle>Add Profile</DialogTitle>
           <DialogDescription>

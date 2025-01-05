@@ -29,12 +29,12 @@ const MySlider = ({
   };
 
   return (
-    <div className="space-y-4 py-8">
+    <div className="space-y-4 py-4 md:py-8">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-semibold w-full">
+        <h1 className="text-xl md:text-3xl font-semibold w-full">
           {heading || "Heading"}
         </h1>
-        <div className="w-full flex justify-end items-center space-x-2">
+        <div className="w-full flex justify-end items-center space-x-2 max-md:hidden">
           <Button onClick={handlePrev}>
             <ChevronLeftIcon className="w-4 h-4" />
           </Button>
@@ -47,7 +47,12 @@ const MySlider = ({
         <Swiper
           ref={swiperRef}
           spaceBetween={10}
-          slidesPerView={6}
+          slidesPerView={2.5}
+          breakpoints={{
+            768: {
+              slidesPerView: 6,
+            },
+          }}
           speed={500}
           className="w-full mx-auto"
         >

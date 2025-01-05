@@ -4,6 +4,7 @@ import { ProfileItem } from "./item";
 import { AddProfileDialog } from "./add";
 import useUserStore from "@/store/user";
 import { useNavigate } from "react-router-dom";
+
 export function ProfileSelector() {
   const [isAddProfileOpen, setIsAddProfileOpen] = useState(false);
   const profiles = useUserStore((state) => state.profiles);
