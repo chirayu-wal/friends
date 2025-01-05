@@ -11,7 +11,7 @@ import { useSearchParams } from "react-router-dom";
 
 const MediaPlayer = ({ type, id }: { type: "movie" | "tv"; id: string }) => {
   const { getActiveProfile, addOrUpdateToHistory } = useUserStore();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const { data: mediaDetails, isLoading } = useQuery<IMediaDetails>({
     queryKey: ["mediaDetails", type, id],
@@ -61,13 +61,19 @@ const MediaPlayer = ({ type, id }: { type: "movie" | "tv"; id: string }) => {
                 (server) =>
                   server.id === getActiveProfile()?.preferences.preferredServer
               )
-              ?.getter(type, id)}
+              ?.getter(
+                type,
+                id,
+                searchParams.get("season") || undefined,
+                searchParams.get("episode") || undefined
+              )}
             // allow="fullscreen"
             // onClick={handleClick}
             className={`w-full h-full rounded-lg`}
             width={"100%"}
             height={"100%"}
             referrerPolicy="origin"
+            // frameBorder="0"
             // scrolling="no"
             allowFullScreen
             // sandbox="allow-same-origin allow-scripts allow-popups allow-forms"

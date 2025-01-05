@@ -32,7 +32,7 @@ const EpisodePicker = ({
   const [searchParams, setSearchParams] = useSearchParams();
   const [episodeList, setEpisodeList] = React.useState<ITvEpisodes[]>([]);
   const [selectedSeasonNo, setSelectedSeasonNo] = React.useState<number | null>(
-    selectedSeason || null
+    selectedSeason || Number(searchParams.get("season") || "1") || null
   );
   const [searchedEpisodeNo, setSearchedEpisodeNo] = React.useState<
     number | null
@@ -42,7 +42,7 @@ const EpisodePicker = ({
   >("text-list");
   const [selectedEpisodeNo, setSelectedEpisodeNo] = React.useState<
     number | null
-  >(selectedEpisode || null);
+  >(selectedEpisode || Number(searchParams.get("episode") || "1") || null);
 
   const fetchEpisodesBySeasonMutation = useMutation({
     mutationFn: async (seasonNo: number) => {

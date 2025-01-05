@@ -21,9 +21,7 @@ const MainLayout = ({ type }: { type: "all" | "movie" | "tv" }) => {
       return res.data.results;
     },
   });
-  const { data: searchResults, isLoading: searchLoading } = useQuery<
-    IMediaDetails[]
-  >({
+  const { data: searchResults } = useQuery<IMediaDetails[]>({
     queryKey: ["search", search, fType],
     queryFn: async () => {
       const res = await apiService.get(

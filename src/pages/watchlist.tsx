@@ -1,4 +1,3 @@
-import React from "react";
 import useUserStore from "@/store/user";
 import MediaCard from "@/components/common/mediaCard";
 const Watchlist = () => {

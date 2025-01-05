@@ -2,7 +2,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { TvIcon, Film, Share2, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import useUserStore, { HistoryItem } from "@/store/user";
 

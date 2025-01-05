@@ -146,7 +146,7 @@ const useUserStore = create<UserState>()(
       },
 
       addToWatchlist: (media: IMediaDetails) => {
-        const { profiles, activeProfileId } = get();
+        const { activeProfileId } = get();
         if (!activeProfileId) return;
 
         set((state) => ({
@@ -163,7 +163,7 @@ const useUserStore = create<UserState>()(
       },
 
       removeFromWatchlist: (mediaId: number) => {
-        const { profiles, activeProfileId } = get();
+        const { activeProfileId } = get();
         if (!activeProfileId) return;
 
         set((state) => ({
@@ -182,7 +182,7 @@ const useUserStore = create<UserState>()(
       },
 
       updatePreferences: (preferences) => {
-        const { profiles, activeProfileId } = get();
+        const { activeProfileId } = get();
         if (!activeProfileId) return;
 
         set((state) => ({

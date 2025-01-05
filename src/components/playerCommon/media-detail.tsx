@@ -43,16 +43,8 @@ export default function MovieDetails({
     );
   }
 
-  const {
-    id,
-    title,
-    overview,
-    genres,
-    production_companies,
-    poster_path,
-    vote_average,
-    release_date,
-  } = mediaDetails;
+  const { title, overview, genres, poster_path, vote_average, release_date } =
+    mediaDetails;
 
   return (
     <div className="min-h-screen bg-black text-white p-6 max-w-3xl mx-auto space-y-6 bg-white/10 backdrop-blur-sm rounded-xl">

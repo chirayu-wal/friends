@@ -1,7 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { PlayIcon, SearchIcon, Trash2Icon } from "lucide-react";
+import { SearchIcon, Trash2Icon } from "lucide-react";
 import useUserStore from "@/store/user";
-import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { useDebounce } from "@/hooks/useDebounce";
