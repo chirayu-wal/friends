@@ -15,20 +15,25 @@ const GridList = ({
       {episodes.map((episode) => (
         <div
           key={episode.id}
-          onClick={() => onEpisodeChange(episode.id)}
-          className={`flex items-center p-3 space-x-2 ${
-            selectedEpisode === episode.id ? "bg-white/20" : " bg-white/10"
+          onClick={() => onEpisodeChange(episode.episode_number)}
+          className={`flex items-center group p-0 space-x-2 rounded-lg ${
+            selectedEpisode === episode.episode_number
+              ? "bg-primary/80"
+              : " bg-white/20"
           }`}
         >
           <div className="relative">
             <img
               src={`https://image.tmdb.org/t/p/w500/${episode.still_path}`}
               alt={episode.name}
-              className={`w-16 h-16 rounded-md ${
-                selectedEpisode === episode.id ? "opacity-50" : ""
+              className={`w-full h-full rounded-lg ${
+                selectedEpisode === episode.episode_number ? "opacity-50" : ""
               }`}
             />
-            {selectedEpisode === episode.id && (
+            <div className="hidden group-hover:block text-lg absolute inset-0 bg-black/60 p-2">
+              {episode.episode_number} . {episode.name}
+            </div>
+            {selectedEpisode === episode.episode_number && (
               <Play className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
             )}
           </div>

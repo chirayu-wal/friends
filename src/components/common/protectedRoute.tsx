@@ -14,6 +14,7 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
     // Redirect to profile selection if no active profile
     return <Navigate to="/select-profile" replace />;
   }
+  // return <>{children}</>;
 
   return <DefaultLayout>{children}</DefaultLayout>;
 };

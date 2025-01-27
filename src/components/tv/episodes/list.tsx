@@ -15,24 +15,35 @@ const ThumbnailList = ({
       {episodes.map((episode) => (
         <div
           key={episode.id}
-          onClick={() => onEpisodeChange(episode.id)}
-          className={`flex items-center p-3 space-x-2 ${
-            selectedEpisode === episode.id ? "bg-white/20" : " bg-white/10"
+          onClick={() => onEpisodeChange(episode.episode_number)}
+          className={`flex p-2 space-x-2 rounded-lg ${
+            selectedEpisode === episode.episode_number
+              ? "bg-primary/30"
+              : " bg-white/20"
           }`}
         >
           <div className="relative">
             <img
               src={`https://image.tmdb.org/t/p/w500/${episode.still_path}`}
               alt={episode.name}
-              className="w-16 h-16 rounded-md"
+              className="w-32 h-24 rounded-md object-cover"
             />
-            {selectedEpisode === episode.id && (
+            {selectedEpisode === episode.episode_number && (
               <Play className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
             )}
           </div>
-          <div className="flex flex-col space-y-2 justify-evenly items-center">
-            <p>{episode.episode_number}. </p>
-            <p className="text-sm">{episode.name}</p>
+          <div className="max-w-[60%] flex flex-col space-y-2 justify-start items-start">
+            <p className="text-lg">
+              {episode.episode_number} .{" "}
+              {episode.name.length > 15
+                ? episode.name.slice(0, 15) + "..."
+                : episode.name}
+            </p>
+            <p className="text-xs">
+              {episode.overview.length > 90
+                ? episode.overview.slice(0, 90) + "..."
+                : episode.overview}
+            </p>
           </div>
         </div>
       ))}

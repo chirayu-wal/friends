@@ -19,9 +19,7 @@ const MediaCard = ({ mediaDetails }: { mediaDetails: IMediaDetails }) => {
   const fallbackImage = "https://via.placeholder.com/500x750?text=No+Image";
 
   return (
-    <Link
-      to={`/details/${mediaDetails.media_type || "movie"}/${mediaDetails.id}`}
-    >
+    <Link to={`/details/${mediaDetails.media_type || "tv"}/${mediaDetails.id}`}>
       <div className="relative rounded-xl overflow-hidden mr-3 group transition-transform duration-200 hover:scale-105">
         <img
           src={

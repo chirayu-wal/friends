@@ -106,11 +106,6 @@ const EpisodePicker = ({
           value={searchedEpisodeNo || undefined}
           onChange={(e) => {
             setSearchedEpisodeNo(parseInt(e.target.value));
-            setEpisodeList(
-              episodeList.filter(
-                (episode) => episode.episode_number === parseInt(e.target.value)
-              )
-            );
           }}
         />
         <Button
@@ -136,33 +131,45 @@ const EpisodePicker = ({
           <div className="w-8 h-8 border-t-2 border-t-white animate-spin rounded-full"></div>
         </div>
       ) : (
-        <>
+        <div className="w-full max-h-[60vh] overflow-y-auto overflow-x-hidden bg-black p-4 rounded-lg">
           {selectedSeasonNo && (
             <div>
               {episodeViewType === "text-list" && (
                 <TextList
-                  episodes={episodeList}
+                  episodes={episodeList.filter((e) =>
+                    searchedEpisodeNo
+                      ? e.episode_number === searchedEpisodeNo
+                      : true
+                  )}
                   selectedEpisode={selectedEpisodeNo || 0}
                   onEpisodeChange={handleEpisodeChange}
                 />
               )}
               {episodeViewType === "list" && (
                 <ThumbnailList
-                  episodes={episodeList}
+                  episodes={episodeList.filter((e) =>
+                    searchedEpisodeNo
+                      ? e.episode_number === searchedEpisodeNo
+                      : true
+                  )}
                   selectedEpisode={selectedEpisodeNo || 0}
                   onEpisodeChange={handleEpisodeChange}
                 />
               )}
               {episodeViewType === "grid" && (
                 <GridList
-                  episodes={episodeList}
+                  episodes={episodeList.filter((e) =>
+                    searchedEpisodeNo
+                      ? e.episode_number === searchedEpisodeNo
+                      : true
+                  )}
                   selectedEpisode={selectedEpisodeNo || 0}
                   onEpisodeChange={handleEpisodeChange}
                 />
               )}
             </div>
           )}
-        </>
+        </div>
       )}
     </div>
   );

@@ -24,7 +24,7 @@ function App() {
           }
           path="/details/:type/:id"
         />
-
+        {/* landing page */}
         <Route
           element={
             <ProtectedRoute>
@@ -33,6 +33,7 @@ function App() {
           }
           path="/"
         />
+        {/* search page */}
         <Route
           element={
             <ProtectedRoute>
@@ -41,6 +42,7 @@ function App() {
           }
           path="/search"
         />
+        {/* movie/tv explore page  */}
         <Route
           element={
             <ProtectedRoute>
@@ -49,7 +51,7 @@ function App() {
           }
           path="/:type"
         />
-
+        {/* history and watchlist pages */}
         <Route
           element={
             <ProtectedRoute>
@@ -58,6 +60,7 @@ function App() {
           }
           path="/history"
         />
+        {/* Watchlist */}
         <Route
           element={
             <ProtectedRoute>
